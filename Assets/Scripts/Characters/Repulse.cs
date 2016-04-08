@@ -7,7 +7,7 @@ public class Repulse : MonoBehaviour, ICharacterAction {
 
     #region Public variables
     public BoxCollider range;
-
+	public GameObject RepulseEffect;
     public float repulseRange;
     public float maxRepulseForce;
     #endregion
@@ -20,6 +20,7 @@ public class Repulse : MonoBehaviour, ICharacterAction {
     {
         foreach (Movable movable in movablesInRange)
         {
+			RepulseEffect.SetActive(true);
             float force = (repulseRange - Vector3.Distance(movable.transform.position, transform.position)) / repulseRange;
             movable.GetComponent<Rigidbody>().AddForce((movable.transform.position - transform.position).normalized * force * maxRepulseForce);
         }

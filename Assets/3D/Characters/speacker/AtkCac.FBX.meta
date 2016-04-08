@@ -64,7 +64,7 @@ ModelImporter:
     400054: Bip001 Xtra01Nub
     400056: Robot
     4300000: Robot
-    7400000: atkCac
+    7400000: action
     9500000: //RootNode
     11100000: //RootNode
     13700000: Robot
@@ -90,7 +90,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: atkCac
+      name: action
       takeName: Take 001
       firstFrame: 5
       lastFrame: 30

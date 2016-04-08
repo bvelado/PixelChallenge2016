@@ -8,6 +8,7 @@ public class Dash : MonoBehaviour, ICharacterAction {
     public float dashForce;
     public float dashDensity;
     public float dashDuration;
+	public GameObject DashEffect;
     #endregion
 
     #region Private variables
@@ -22,9 +23,16 @@ public class Dash : MonoBehaviour, ICharacterAction {
 	
 	public void Execute()
     {
-        print("Dash");
+//        print("Dash");
+
+		gameObject.GetComponent<Animation>().CrossFade("Dash");
+		DashEffect.SetActive(true);
         player.GetComponent<Rigidbody>().AddForce(player.transform.forward.normalized * dashForce);
         StartCoroutine(SetDashMassDuringSeconds(dashDuration));
+		DashEffect.SetActive(false);
+
+
+
     }
 
     IEnumerator SetDashMassDuringSeconds(float seconds)

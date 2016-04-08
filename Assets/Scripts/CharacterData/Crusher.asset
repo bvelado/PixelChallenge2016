@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
   characterPortraitSprite: {fileID: 22419072, guid: 7f5d4fc10ffdee44396d702e556ab676,
     type: 2}
-  characterModel: {fileID: 415904, guid: 695fae83b15ef524f911c0e7b2896b62, type: 2}
+  characterModel: {fileID: 439260, guid: 695fae83b15ef524f911c0e7b2896b62, type: 2}
   characterName: Crusher

@@ -147,7 +147,7 @@ ModelImporter:
     3300000: Cylinder005
     4300000: Group56663
     4300002: Cylinder005
-    7400000: Atk
+    7400000: Repulse
     9500000: //RootNode
     11100000: //RootNode
     13700000: Group56663
@@ -173,10 +173,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Atk
+      name: Repulse
       takeName: Take 001
-      firstFrame: 5
-      lastFrame: 34
+      firstFrame: 11
+      lastFrame: 24
       wrapMode: 1
       orientationOffsetY: 0
       level: 0

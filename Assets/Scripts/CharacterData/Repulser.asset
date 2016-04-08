@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
   characterPortraitSprite: {fileID: 22483404, guid: bb0c5d4a752c3324595a8e950af7b22c,
     type: 2}
-  characterModel: {fileID: 22483404, guid: bb0c5d4a752c3324595a8e950af7b22c, type: 2}
+  characterModel: {fileID: 497076, guid: ffdc3d9bd8fc1af4b93be3adfe9619d7, type: 2}
   characterName: Repulser

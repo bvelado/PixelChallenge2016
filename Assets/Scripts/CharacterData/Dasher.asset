@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
   characterPortraitSprite: {fileID: 22446344, guid: cc680fd5fb1afd64db16bfaabc0522dc,
     type: 2}
-  characterModel: {fileID: 422362, guid: c38fa6e622628604c9eb9c1d4cc2f090, type: 2}
+  characterModel: {fileID: 468790, guid: c38fa6e622628604c9eb9c1d4cc2f090, type: 2}
   characterName: Dasher

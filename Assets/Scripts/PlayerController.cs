@@ -39,7 +39,8 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetButtonDown("P" + playerId + "Action") && stamina >= actionCost)
         {
-            action.Execute();
+			gameObject.GetComponent<Animation>().Play("action");
+			action.Execute();
             stamina -= actionCost;
         }
 
@@ -53,14 +54,14 @@ public class PlayerController : MonoBehaviour {
             movement.z = Input.GetAxis("P" + playerId + "Vertical");
 
             // Anim
-			//gameObject.GetComponent<Animation>().CrossFade("walk");
+			gameObject.GetComponent<Animation>().CrossFade("walk");
 
 
             transform.LookAt(transform.position + movement);
         }
 		else {
             // Anim
-			//gameObject.GetComponent<Animation>().CrossFade("idle");
+			gameObject.GetComponent<Animation>().CrossFade("idle");
 
 
 		}

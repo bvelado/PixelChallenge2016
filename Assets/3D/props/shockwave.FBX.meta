@@ -27,7 +27,7 @@ ModelImporter:
     4300002: Plane002
     4300004: Plane003
     4300006: Plane004
-    7400000: Take 001
+    7400000: shockwave
     9500000: //RootNode
     11100000: //RootNode
     13700000: Plane001
@@ -54,11 +54,11 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: shockwave
       takeName: Take 001
       firstFrame: 0
       lastFrame: 10
-      wrapMode: 2
+      wrapMode: 1
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
@@ -79,14 +79,6 @@ ModelImporter:
       events: []
       transformMask:
       - path: 
-        weight: 1
-      - path: Plane001
-        weight: 1
-      - path: Plane002
-        weight: 1
-      - path: Plane003
-        weight: 1
-      - path: Plane004
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
