@@ -138,6 +138,8 @@ MonoBehaviour:
   movementSpeed: 14
   maxVelocity: 5
   velocitySmoothLerp: 3.6
+  secondsToResetStamina: 3
+  maxActions: 2
 --- !u!114 &11459310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -162,7 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: {fileID: 6569848}
   repulseRange: 6
-  maxRepulseForce: 900
+  maxRepulseForce: 1600
 --- !u!136 &13687656
 CapsuleCollider:
   m_ObjectHideFlags: 1

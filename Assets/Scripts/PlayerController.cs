@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour {
 
     Vector3 movement;
     Vector3 velocity;
+
+    float stamina;
+    float maxStamina;
+    float actionCost;
     #endregion
 
     #region Public variables
@@ -18,19 +22,28 @@ public class PlayerController : MonoBehaviour {
     public float maxVelocity = 5f;
 
     public float velocitySmoothLerp;
+
+    public float secondsToResetStamina;
+    public int maxActions;
     #endregion
 
     void Start () {
         rb = GetComponent<Rigidbody>();
         action = GetComponent<ICharacterAction>();
+
+        stamina = maxStamina = secondsToResetStamina;
+        actionCost = maxStamina / maxActions;
     }
 	
 	void Update () {
         // Action
 
-        if (Input.GetButtonDown("P" + playerId + "Action"))
+        stamina = Mathf.Clamp(Time.deltaTime + stamina, 0, maxStamina);
+
+        if (Input.GetButtonDown("P" + playerId + "Action") && stamina >= actionCost)
         {
             action.Execute();
+            stamina -= actionCost;
         }
 
         // Mouvement

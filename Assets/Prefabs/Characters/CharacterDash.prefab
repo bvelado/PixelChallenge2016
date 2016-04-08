@@ -182,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashForce: 1000
   dashDensity: 20
-  dashDuration: 1
+  dashDuration: 0.3
 --- !u!114 &11488702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,6 +198,8 @@ MonoBehaviour:
   movementSpeed: 14
   maxVelocity: 2
   velocitySmoothLerp: 3.6
+  secondsToResetStamina: 4
+  maxActions: 2
 --- !u!136 &13652224
 CapsuleCollider:
   m_ObjectHideFlags: 1
