@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-
-    AsyncOperation async;
+    AsyncOperation asyncSceneLoad;
 
     public Transform crusherUIprefab, dasherUIprefab, repulserUIprefab;
 
@@ -62,6 +61,5 @@ public class MainMenuController : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene(1);
-        GameController.Instance.InitGame();
     }
 }

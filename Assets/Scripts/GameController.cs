@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class GameController : MonoBehaviour {
+public class GameController : MonoBehaviour
+{
 
     #region Singleton pattern
     static GameController _instance;
@@ -32,14 +33,6 @@ public class GameController : MonoBehaviour {
         else
             Destroy(gameObject);
         DontDestroyOnLoad(this);
-
-        if(GameObject.Find("MapData"))
-        {
-            SetMap(GameObject.Find("MapData").GetComponent<Map>());
-        } else
-        {
-            print("No map data found");
-        }
     }
 
     /// <summary>
@@ -47,11 +40,18 @@ public class GameController : MonoBehaviour {
     /// </summary>
     public void InitGame()
     {
-        SetMap(GameObject.Find("MapData").GetComponent<Map>());
+        if (GameObject.FindGameObjectWithTag("MapData"))
+        {
+            map = GameObject.FindGameObjectWithTag("MapData").GetComponent<Map>();
+        }
+        else
+        {
+            print("No map data found");
+        }
 
         players.Clear();
 
-        foreach(CharacterData character in characters)
+        foreach (CharacterData character in characters)
         {
             players.Add(Instantiate(character.characterModel).GetComponent<PlayerController>());
         }
@@ -59,9 +59,9 @@ public class GameController : MonoBehaviour {
         print(players.Count);
 
         // DEBUG : Charger autant de players que necessaire , sortir la valeur en dur
-        for(int i = 0; i < players.Count; i++)
+        for (int i = 0; i < players.Count; i++)
         {
-            players[i].Init(i+1);
+            players[i].Init(i + 1);
             players[i].Spawn(map.data.mapSpawnPoints[i].position);
 
             players[i].PlayerDied += OnPlayerDied;
@@ -80,10 +80,11 @@ public class GameController : MonoBehaviour {
 
     public void OnPlayerDied(PlayerController player)
     {
-        if(player.lives > 0)
+        if (player.lives > 0)
         {
             player.Spawn(map.data.mapSpawnPoints[3].position);
-        } else
+        }
+        else
         {
             print(player.name + "died");
 
@@ -93,9 +94,15 @@ public class GameController : MonoBehaviour {
             player.PlayerDied -= OnPlayerDied;
         }
 
-        if(players.Count < 2)
+        if (players.Count < 2)
         {
             print("Game finished. " + players[0].name + " won.");
         }
+    }
+
+    public void OnLevelWasLoaded(int level)
+    {
+        if(level != 0)
+            InitGame();
     }
 }
