@@ -1,36 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(SphereCollider))]
-public class Explosion : MonoBehaviour, ICharacterAction
-{
-    #region Public variables
-    public SphereCollider range;
+public class Repulse : MonoBehaviour, ICharacterAction {
 
-    public float explosionRadius;
-    public float maxExplosionForce;
+    #region Public variables
+    public BoxCollider range;
+
+    public float repulseRange;
+    public float maxRepulseForce;
     #endregion
 
     #region Private variables
     List<Movable> movablesInRange = new List<Movable>();
     #endregion
 
-    void Start()
-    {
-        range.radius = explosionRadius;
-        range.isTrigger = true;
-    }
-
     public void Execute()
     {
-        print("Explosion");
         foreach (Movable movable in movablesInRange)
         {
-            float force = (explosionRadius - Vector3.Distance(movable.transform.position, transform.position)) / explosionRadius;
-            movable.GetComponent<Rigidbody>().AddForce((movable.transform.position - transform.position).normalized * force * maxExplosionForce);
+            float force = (repulseRange - Vector3.Distance(movable.transform.position, transform.position)) / repulseRange;
+            movable.GetComponent<Rigidbody>().AddForce((movable.transform.position - transform.position).normalized * force * maxRepulseForce);
         }
     }
+
+    void Start () {
+        range.isTrigger = true;
+        Vector3 newRange = range.size;
+        newRange.z = repulseRange;
+        range.size = newRange;
+        newRange = Vector3.zero;
+        newRange.z = repulseRange / 2f;
+        range.center = newRange;
+	}
 
     public void OnTriggerEnter(Collider other)
     {

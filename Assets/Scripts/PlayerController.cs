@@ -1,27 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum PlayerControls
-{
-    Player1, Player2
-}
-
 public class PlayerController : MonoBehaviour {
     
     #region Private variables
     Rigidbody rb;
     ICharacterAction action;
 
-    float inputHorizontalAxis;
-    float inputVerticalAxis;
-    bool inputAction;
-
     Vector3 movement;
     Vector3 velocity;
     #endregion
 
     #region Public variables
-    public PlayerControls controls;
+    public int playerId;
 
     public float movementSpeed = 14f;
     public float maxVelocity = 5f;
@@ -32,20 +23,12 @@ public class PlayerController : MonoBehaviour {
     void Start () {
         rb = GetComponent<Rigidbody>();
         action = GetComponent<ICharacterAction>();
-	}
+    }
 	
 	void Update () {
-
-        if (controls == PlayerControls.Player1)
-        {
-            inputHorizontalAxis = Input.GetAxis("Horizontal");
-            inputVerticalAxis = Input.GetAxis("Vertical");
-            inputAction = Input.GetButtonDown("Fire1");
-        }
-
         // Action
 
-        if(inputAction)
+        if (Input.GetButtonDown("P" + playerId + "Action"))
         {
             action.Execute();
         }
@@ -54,10 +37,10 @@ public class PlayerController : MonoBehaviour {
 
         movement = Vector3.zero;
 
-        if (inputHorizontalAxis != 0f || inputVerticalAxis != 0f)
+        if (Input.GetAxis("P" + playerId + "Horizontal") != 0f || Input.GetAxis("P" + playerId + "Vertical") != 0f)
         {
-            movement.x = inputHorizontalAxis;
-            movement.z = inputVerticalAxis;
+            movement.x = Input.GetAxis("P" + playerId + "Horizontal");
+            movement.z = Input.GetAxis("P" + playerId + "Vertical");
 
             transform.LookAt(transform.position + movement);
         }
@@ -72,8 +55,6 @@ public class PlayerController : MonoBehaviour {
             velocity.x = Mathf.Lerp(velocity.x, Mathf.Sign(velocity.x) * maxVelocity, Time.deltaTime * velocitySmoothLerp);
         if (Mathf.Abs(velocity.z) > maxVelocity)
             velocity.z = Mathf.Lerp( velocity.z, Mathf.Sign(velocity.z) * maxVelocity, Time.deltaTime * velocitySmoothLerp);
-
-        print(velocity);
 
         rb.velocity = velocity;
 	}

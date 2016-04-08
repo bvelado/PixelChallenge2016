@@ -22,6 +22,7 @@ public class Dash : MonoBehaviour, ICharacterAction {
 	
 	public void Execute()
     {
+        print("Dash");
         player.GetComponent<Rigidbody>().AddForce(player.transform.forward.normalized * dashForce);
         StartCoroutine(SetDashMassDuringSeconds(dashDuration));
     }
