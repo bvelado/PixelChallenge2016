@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour {
     float stamina;
     float maxStamina;
     float actionCost;
+
+    public int lives;
     #endregion
 
     #region Public variables
@@ -28,11 +30,7 @@ public class PlayerController : MonoBehaviour {
     #endregion
 
     void Start () {
-        rb = GetComponent<Rigidbody>();
-        action = GetComponent<ICharacterAction>();
 
-        stamina = maxStamina = secondsToResetStamina;
-        actionCost = maxStamina / maxActions;
     }
 	
 	void Update () {
@@ -71,4 +69,34 @@ public class PlayerController : MonoBehaviour {
 
         rb.velocity = velocity;
 	}
+
+    public void Die()
+    {
+        lives--;
+        if (lives < 1)
+            Lose();
+        else
+            Respawn();
+    }
+
+    public void Lose()
+    {
+
+    }
+
+    public void Respawn()
+    {
+
+    }
+
+    public void Spawn()
+    {
+        rb = GetComponent<Rigidbody>();
+        action = GetComponent<ICharacterAction>();
+
+        stamina = maxStamina = secondsToResetStamina;
+        actionCost = maxStamina / maxActions;
+
+        lives = 3;
+    }
 }

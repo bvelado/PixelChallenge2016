@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(SphereCollider))]
 public class Explosion : MonoBehaviour, ICharacterAction
 {
     #region Public variables

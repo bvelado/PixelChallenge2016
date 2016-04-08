@@ -32,7 +32,7 @@ GameObject:
   - 114: {fileID: 11486650}
   - 114: {fileID: 11459310}
   m_Layer: 0
-  m_Name: CharacterRepulse
+  m_Name: Repulser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb14e17215e48346b4eea0f85e1eca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lives: 0
   playerId: 1
   movementSpeed: 14
   maxVelocity: 5
