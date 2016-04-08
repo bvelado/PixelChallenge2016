@@ -18,6 +18,8 @@ public class GameController : MonoBehaviour
     #region Public variables
     public List<CharacterData> characters = new List<CharacterData>();
     public Map map;
+
+    public bool DEBUGSCENE = true;
     #endregion
 
     #region Private variables
@@ -33,6 +35,13 @@ public class GameController : MonoBehaviour
         else
             Destroy(gameObject);
         DontDestroyOnLoad(this);
+    }
+
+    void Start()
+    {
+        if (DEBUGSCENE)
+            InitGame();
+
     }
 
     /// <summary>

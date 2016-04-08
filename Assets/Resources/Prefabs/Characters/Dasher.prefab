@@ -1560,7 +1560,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162334}
   m_LocalRotation: {x: -0.43045983, y: 0.430459, z: 0.56098527, w: 0.5609857}
-  m_LocalPosition: {x: 0.11845546, y: 0.6733032, z: 0.035644233}
+  m_LocalPosition: {x: 0.044, y: 0.6733032, z: -0.236}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
   m_Children:
   - {fileID: 440318}
@@ -1643,7 +1643,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 453394}
@@ -1976,11 +1976,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb14e17215e48346b4eea0f85e1eca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 0
+  lives: 3
   playerId: 0
-  movementSpeed: 20
+  movementSpeed: 46
   maxVelocity: 4
-  velocitySmoothLerp: 1
+  velocitySmoothLerp: 6
   secondsToResetStamina: 1
   maxActions: 2
 --- !u!114 &11493008
@@ -1994,8 +1994,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d18a8ca41456641b95e84ad54fe366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashForce: 1000
-  dashDensity: 50
+  dashForce: 1200
+  dashDensity: 20
   dashDuration: 0.3
   DashEffect: {fileID: 140898, guid: c53e15e15192bd544b2356b877acdab5, type: 2}
 --- !u!136 &13612238
@@ -2008,9 +2008,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.54
-  m_Height: 2
+  m_Height: 1.61
   m_Direction: 1
-  m_Center: {x: 0, y: 0.92, z: 0}
+  m_Center: {x: 0, y: 0.75, z: 0}
 --- !u!137 &13759594
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

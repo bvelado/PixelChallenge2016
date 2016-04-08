@@ -25,7 +25,7 @@ public class Dash : MonoBehaviour, ICharacterAction {
     {
 //        print("Dash");
 
-		gameObject.GetComponent<Animation>().CrossFade("Dash");
+		gameObject.GetComponent<Animation>().Play("Dash");
 		DashEffect.SetActive(true);
         player.GetComponent<Rigidbody>().AddForce(player.transform.forward.normalized * dashForce);
         StartCoroutine(SetDashMassDuringSeconds(dashDuration));

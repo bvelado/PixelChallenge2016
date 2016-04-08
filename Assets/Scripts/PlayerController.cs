@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour {
     Rigidbody rb;
     ICharacterAction action;
 
+    float baseDrag;
+    bool grounded;
+
     Vector3 movement;
     Vector3 velocity;
 
@@ -33,6 +36,16 @@ public class PlayerController : MonoBehaviour {
     #endregion
 
 	void Update () {
+
+        //Debug.DrawRay(rb.position, Vector3.down * .3f, Color.red);
+        //if(Physics.Raycast(rb.position, Vector3.down, 0.3f))
+        //{
+        //    grounded = true;
+        //} else
+        //{
+        //    grounded = false;
+        //}
+
         // Action
 
         stamina = Mathf.Clamp(Time.deltaTime + stamina, 0, maxStamina);
@@ -47,35 +60,33 @@ public class PlayerController : MonoBehaviour {
         // Mouvement
 
         movement = Vector3.zero;
+        velocity = rb.velocity;
 
-        if (Input.GetAxis("P" + playerId + "Horizontal") != 0f || Input.GetAxis("P" + playerId + "Vertical") != 0f)
+        if (Input.GetAxis("P" + playerId + "Horizontal") != 0f || Input.GetAxis("P" + playerId + "Vertical") != 0f && grounded)
         {
             movement.x = Input.GetAxis("P" + playerId + "Horizontal");
             movement.z = Input.GetAxis("P" + playerId + "Vertical");
 
             // Anim
 			gameObject.GetComponent<Animation>().CrossFade("walk");
-
-
+            
             transform.LookAt(transform.position + movement);
+
+            rb.AddForce(movement * movementSpeed);
         }
 		else {
             // Anim
 			gameObject.GetComponent<Animation>().CrossFade("idle");
-
-
 		}
 
-        rb.AddForce(movement * movementSpeed);
-
         // Limite la velocity
-
-        velocity = rb.velocity;
 
         if (Mathf.Abs(velocity.x) > maxVelocity)
             velocity.x = Mathf.Lerp(velocity.x, Mathf.Sign(velocity.x) * maxVelocity, Time.deltaTime * velocitySmoothLerp);
         if (Mathf.Abs(velocity.z) > maxVelocity)
             velocity.z = Mathf.Lerp( velocity.z, Mathf.Sign(velocity.z) * maxVelocity, Time.deltaTime * velocitySmoothLerp);
+
+        velocity = Vector3.Lerp(velocity, Vector3.zero, Time.deltaTime * velocitySmoothLerp);
 
         rb.velocity = velocity;
 	}
@@ -94,6 +105,8 @@ public class PlayerController : MonoBehaviour {
     {
         rb = GetComponent<Rigidbody>();
         action = GetComponent<ICharacterAction>();
+
+        baseDrag = rb.drag;
 
         // Init 
         stamina = maxStamina = secondsToResetStamina;
