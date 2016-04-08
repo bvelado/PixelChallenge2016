@@ -54,9 +54,17 @@ public class PlayerController : MonoBehaviour {
         {
             movement.x = Input.GetAxis("P" + playerId + "Horizontal");
             movement.z = Input.GetAxis("P" + playerId + "Vertical");
+			gameObject.GetComponent<Animation>().CrossFade("walk");
+
 
             transform.LookAt(transform.position + movement);
         }
+		else {
+
+			gameObject.GetComponent<Animation>().CrossFade("idle");
+
+
+		}
 
         rb.AddForce(movement * movementSpeed);
 
