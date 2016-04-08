@@ -4,8 +4,8 @@ using System.Collections.Generic;
 public class GameController : MonoBehaviour {
 
     #region Singleton pattern
-    GameController _instance;
-    public GameController Instance
+    static GameController _instance;
+    public static GameController Instance
     {
         get
         {
@@ -15,11 +15,14 @@ public class GameController : MonoBehaviour {
     #endregion
 
     #region Public variables
-    public List<PlayerController> players = new List<PlayerController>();
+    public List<CharacterData> characters = new List<CharacterData>();
     public Map map;
     #endregion
 
     #region Private variables
+    List<PlayerController> players = new List<PlayerController>();
+
+    List<PlayerController> deadPlayers = new List<PlayerController>();
     #endregion
 
     void Awake()
@@ -29,12 +32,14 @@ public class GameController : MonoBehaviour {
         else
             Destroy(gameObject);
         DontDestroyOnLoad(this);
-    }
 
-    void Start()
-    {
-        // ONLY FOR DEBUG
-        InitGame();
+        if(GameObject.Find("MapData"))
+        {
+            SetMap(GameObject.Find("MapData").GetComponent<Map>());
+        } else
+        {
+            print("No map data found");
+        }
     }
 
     /// <summary>
@@ -42,15 +47,22 @@ public class GameController : MonoBehaviour {
     /// </summary>
     public void InitGame()
     {
-        // TODO : Changer le systeme pour load la map data
         SetMap(GameObject.Find("MapData").GetComponent<Map>());
 
-        // DEBUG : Charger autant de players que necessaire , sortir la valeur en dur
-        for(int i = 1; i < 2; i++)
+        players.Clear();
+
+        foreach(CharacterData character in characters)
         {
-            //GameObject go = Instantiate(players[i]);
-            players[i].Init(i);
-            players[i].Spawn(map.data.mapSpawnPoints[i]);
+            players.Add(Instantiate(character.characterModel).GetComponent<PlayerController>());
+        }
+
+        print(players.Count);
+
+        // DEBUG : Charger autant de players que necessaire , sortir la valeur en dur
+        for(int i = 0; i < players.Count; i++)
+        {
+            players[i].Init(i+1);
+            players[i].Spawn(map.data.mapSpawnPoints[i].position);
 
             players[i].PlayerDied += OnPlayerDied;
         }
@@ -70,7 +82,20 @@ public class GameController : MonoBehaviour {
     {
         if(player.lives > 0)
         {
-            player.Spawn(map.data.mapSpawnPoints[Random.Range(0, map.data.mapSpawnPoints.Length)]);
+            player.Spawn(map.data.mapSpawnPoints[3].position);
+        } else
+        {
+            print(player.name + "died");
+
+            players.Remove(player);
+            deadPlayers.Add(player);
+
+            player.PlayerDied -= OnPlayerDied;
+        }
+
+        if(players.Count < 2)
+        {
+            print("Game finished. " + players[0].name + " won.");
         }
     }
 }

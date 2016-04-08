@@ -203,12 +203,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    mapSceneIndex: 0
+    mapSceneIndex: 1
     mapSpawnPoints:
-    - {x: -2.8118803e-35, y: 4.5907e-41, z: 0}
-    - {x: -2.8118803e-35, y: 4.5907e-41, z: 0}
-    - {x: -2.8118803e-35, y: 4.5907e-41, z: 0}
-    - {x: -2.8118803e-35, y: 4.5907e-41, z: 0}
+    - {fileID: 1679470161}
+    - {fileID: 1683084587}
+    - {fileID: 1321693602}
+    - {fileID: 1141426666}
     mapName: Map Test Baptiste
 --- !u!4 &849074045
 Transform:
@@ -221,7 +221,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &902524407
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +357,7 @@ Transform:
   - {fileID: 1321693602}
   - {fileID: 1141426666}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &1141426665
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,49 +488,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 959518673}
   m_RootOrder: 2
---- !u!1 &1159715091
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1159715092}
-  - 114: {fileID: 1159715093}
-  m_Layer: 0
-  m_Name: GameController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1159715092
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1159715091}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
---- !u!114 &1159715093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1159715091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7347032dd67a05a47ab8a4ce194b9edf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  players:
-  - {fileID: 11493126, guid: 695fae83b15ef524f911c0e7b2896b62, type: 2}
-  - {fileID: 11488702, guid: c38fa6e622628604c9eb9c1d4cc2f090, type: 2}
-  map: {fileID: 849074044}
 --- !u!1 &1296398477
 GameObject:
   m_ObjectHideFlags: 0

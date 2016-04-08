@@ -1,29 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
-public class MainMenuController : MonoBehaviour {
+public class MainMenuController : MonoBehaviour
+{
+
+    AsyncOperation async;
 
     public Transform crusherUIprefab, dasherUIprefab, repulserUIprefab;
 
-    public Transform characterContainer;
+    public Transform characterUIContainer;
 
-    List<PlayerController> characters = new List<PlayerController>();
     List<GameObject> charactersUI = new List<GameObject>();
 
-	void Start () {
-	    
-	}
-	
-	void Update () {
-	    
-	}
+    public CharacterData crusherData, dasherData, repulserData;
 
     public void AddCrusher()
     {
-        characters.Add(Resources.Load("Prefabs/Characters/Crusher") as PlayerController);
+        GameController.Instance.characters.Add(crusherData);
         Transform charUI = Instantiate(crusherUIprefab).transform;
-        charUI.SetParent(characterContainer);
+        charUI.SetParent(characterUIContainer);
         charUI.localScale = Vector3.one;
 
         charUI.GetComponent<RectTransform>().localPosition = Vector3.zero;
@@ -32,9 +29,9 @@ public class MainMenuController : MonoBehaviour {
 
     public void AddRepulser()
     {
-        characters.Add(Resources.Load("Prefabs/Characters/Repulser") as PlayerController);
+        GameController.Instance.characters.Add(repulserData);
         Transform charUI = Instantiate(repulserUIprefab).transform;
-        charUI.SetParent(characterContainer);
+        charUI.SetParent(characterUIContainer);
         charUI.localScale = Vector3.one;
 
         charUI.GetComponent<RectTransform>().localPosition = Vector3.zero;
@@ -43,9 +40,9 @@ public class MainMenuController : MonoBehaviour {
 
     public void AddDasher()
     {
-        characters.Add(Resources.Load("Prefabs/Characters/Dasher") as PlayerController);
+        GameController.Instance.characters.Add(dasherData);
         Transform charUI = Instantiate(dasherUIprefab).transform;
-        charUI.SetParent(characterContainer);
+        charUI.SetParent(characterUIContainer);
         charUI.localScale = Vector3.one;
 
         charUI.GetComponent<RectTransform>().localPosition = Vector3.zero;
@@ -54,11 +51,17 @@ public class MainMenuController : MonoBehaviour {
 
     public void Clear()
     {
-        foreach(GameObject go in charactersUI)
+        foreach (GameObject go in charactersUI)
         {
             Destroy(go);
         }
         charactersUI.Clear();
-        characters.Clear();
+        GameController.Instance.characters.Clear();
+    }
+
+    public void Play()
+    {
+        SceneManager.LoadScene(1);
+        GameController.Instance.InitGame();
     }
 }

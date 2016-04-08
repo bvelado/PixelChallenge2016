@@ -82,13 +82,11 @@ public class PlayerController : MonoBehaviour {
     public void Die()
     {
         lives--;
-        PlayerDied(this);
+        rb.velocity = Vector3.zero;
+        rb.position = Vector3.zero;
+        
         gameObject.SetActive(false);
-        //lives--;
-        //if (lives < 1)
-        //    Lose();
-        //else
-        //    Respawn();
+        PlayerDied(this);
     }
 
     public void Init(int playerId)
