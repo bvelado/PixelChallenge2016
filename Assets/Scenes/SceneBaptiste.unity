@@ -175,61 +175,47 @@ Transform:
   - {fileID: 959518673}
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!1 &534842660
+--- !u!1 &849074043
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 534842663}
-  - 114: {fileID: 534842662}
-  - 114: {fileID: 534842661}
+  - 4: {fileID: 849074045}
+  - 114: {fileID: 849074044}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: MapData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &534842661
+--- !u!114 &849074044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 534842660}
+  m_GameObject: {fileID: 849074043}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 901dca07f4f91a8469f19f3349d952e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: P1Horizontal
-  m_VerticalAxis: P1Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &534842662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 534842660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 5
---- !u!4 &534842663
+  data:
+    mapSceneIndex: 0
+    mapSpawnPoints:
+    - {x: -2.8118803e-35, y: 4.5907e-41, z: 0}
+    - {x: -2.8118803e-35, y: 4.5907e-41, z: 0}
+    - {x: -2.8118803e-35, y: 4.5907e-41, z: 0}
+    - {x: -2.8118803e-35, y: 4.5907e-41, z: 0}
+    mapName: Map Test Baptiste
+--- !u!4 &849074045
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 534842660}
+  m_GameObject: {fileID: 849074043}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -541,12 +527,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7347032dd67a05a47ab8a4ce194b9edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoints:
-  - {fileID: 1679470161}
-  - {fileID: 1683084587}
-  - {fileID: 1321693602}
-  - {fileID: 1141426666}
-  nbPlayers: 2
+  players:
+  - {fileID: 11493126, guid: 695fae83b15ef524f911c0e7b2896b62, type: 2}
+  - {fileID: 11488702, guid: c38fa6e622628604c9eb9c1d4cc2f090, type: 2}
+  map: {fileID: 849074044}
 --- !u!1 &1296398477
 GameObject:
   m_ObjectHideFlags: 0

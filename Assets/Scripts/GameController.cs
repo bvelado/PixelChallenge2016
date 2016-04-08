@@ -15,21 +15,11 @@ public class GameController : MonoBehaviour {
     #endregion
 
     #region Public variables
-    public Transform[] spawnPoints;
-    public int nbPlayers;
-
-    /// <summary>
-    /// Characters prefabs are loaded into that list to initiate the game.
-    /// </summary>
-    List<GameObject> characters = new List<GameObject>();
+    public List<PlayerController> players = new List<PlayerController>();
+    public Map map;
     #endregion
 
     #region Private variables
-    List<int> usedSpawnPoints = new List<int>();
-    /// <summary>
-    /// Actual playing characters
-    /// </summary>
-    List<PlayerController> players = new List<PlayerController>();
     #endregion
 
     void Awake()
@@ -41,91 +31,46 @@ public class GameController : MonoBehaviour {
         DontDestroyOnLoad(this);
     }
 
-    void Start () {
-            
-	}
-
-    public void AddCrusher()
+    void Start()
     {
-        characters.Add(Resources.Load("Prefabs/Characters/Crusher") as GameObject);
-    }
-
-    public void AddDasher()
-    {
-        characters.Add(Resources.Load("Prefabs/Characters/Dasher") as GameObject);
-    }
-
-    public void AddRepulser()
-    {
-        characters.Add(Resources.Load("Prefabs/Characters/Repulser") as GameObject);
+        // ONLY FOR DEBUG
+        InitGame();
     }
 
     /// <summary>
-    /// Reset the game base on the loaded characters list
+    /// Load Map data then initialize the players
     /// </summary>
-    public void Reset()
+    public void InitGame()
     {
-        ClearCharacters();
+        // TODO : Changer le systeme pour load la map data
+        SetMap(GameObject.Find("MapData").GetComponent<Map>());
 
-        for(int i = 0; i < characters.Count; i++)
+        // DEBUG : Charger autant de players que necessaire , sortir la valeur en dur
+        for(int i = 1; i < 2; i++)
         {
-            SpawnCharacter(i);
-        }
+            //GameObject go = Instantiate(players[i]);
+            players[i].Init(i);
+            players[i].Spawn(map.data.mapSpawnPoints[i]);
 
-        usedSpawnPoints.Clear();
+            players[i].PlayerDied += OnPlayerDied;
+        }
     }
 
-    /// <summary>
-    /// Clear all characters
-    /// </summary>
-    public void ClearCharacters(bool resetCharacterList = false)
+    public void AddPlayer(CharacterData player)
     {
-        foreach (PlayerController character in players)
-        {
-            Destroy(character.gameObject);
-        }
-        players.Clear();
-
-        if(resetCharacterList)
-            characters.Clear();
+        players.Add(player.characterModel.GetComponent<PlayerController>());
     }
 
-    /// <summary>
-    /// Remove the character from the players list
-    /// </summary>
-    /// <param name="character"></param>
-    void RemoveCharacter(PlayerController character)
+    public void SetMap(Map map)
     {
-        Destroy(character.gameObject);
-        players.Remove(character);
+        this.map = map;
     }
 
-
-
-    void SpawnCharacter(int playerId)
+    public void OnPlayerDied(PlayerController player)
     {
-        PlayerController player = Instantiate(characters[playerId]).GetComponent<PlayerController>();
-        player.Spawn();
-
-        bool hasSpawn = false;
-
-        while(!hasSpawn)
+        if(player.lives > 0)
         {
-            int randomSpawnIndex = Random.Range(0, spawnPoints.Length);
-            if (!usedSpawnPoints.Contains(randomSpawnIndex))
-            {
-                player.transform.position = spawnPoints[randomSpawnIndex].position;
-                usedSpawnPoints.Add(randomSpawnIndex);
-                hasSpawn = true;
-            } else if(usedSpawnPoints.Count == spawnPoints.Length)
-            {
-                Debug.LogWarning("Pas assez de spawn points par rapport au nombre de joueur. (" + spawnPoints.Length + " spawns pour " + nbPlayers + " joueurs).");
-                hasSpawn = true;
-            }
+            player.Spawn(map.data.mapSpawnPoints[Random.Range(0, map.data.mapSpawnPoints.Length)]);
         }
-        
-        player.playerId = playerId + 1;
-
-        players.Add(player);
     }
 }

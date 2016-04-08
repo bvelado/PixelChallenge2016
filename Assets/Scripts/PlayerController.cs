@@ -2,6 +2,9 @@
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
+
+    public delegate void PlayerDiedEventHandler(PlayerController player);
+    public event PlayerDiedEventHandler PlayerDied;
     
     #region Private variables
     Rigidbody rb;
@@ -29,10 +32,6 @@ public class PlayerController : MonoBehaviour {
     public int maxActions;
     #endregion
 
-    void Start () {
-
-    }
-	
 	void Update () {
         // Action
 
@@ -82,34 +81,33 @@ public class PlayerController : MonoBehaviour {
 
     public void Die()
     {
+        lives--;
+        PlayerDied(this);
+        gameObject.SetActive(false);
         //lives--;
         //if (lives < 1)
         //    Lose();
         //else
         //    Respawn();
-
-        // DEBUG : Respawn
-        Respawn();
     }
 
-    public void Lose()
-    {
-
-    }
-
-    public void Respawn()
-    {
-
-    }
-
-    public void Spawn()
+    public void Init(int playerId)
     {
         rb = GetComponent<Rigidbody>();
         action = GetComponent<ICharacterAction>();
 
+        // Init 
         stamina = maxStamina = secondsToResetStamina;
         actionCost = maxStamina / maxActions;
-
         lives = 3;
+
+        this.playerId = playerId;
+    }
+
+    public void Spawn(Vector3 spawnPos)
+    {
+        transform.position = spawnPos;
+        rb.velocity = Vector3.zero;
+        gameObject.SetActive(true);
     }
 }

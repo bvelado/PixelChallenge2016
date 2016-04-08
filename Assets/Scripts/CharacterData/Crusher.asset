@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Crusher
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterData
+  characterPortraitSprite: {fileID: 22419072, guid: 7f5d4fc10ffdee44396d702e556ab676,
+    type: 2}
+  characterModel: {fileID: 415904, guid: 695fae83b15ef524f911c0e7b2896b62, type: 2}
+  characterName: Crusher

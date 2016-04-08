@@ -8,8 +8,8 @@ public class MainMenuController : MonoBehaviour {
 
     public Transform characterContainer;
 
-    List<GameObject> characters;
-    List<GameObject> charactersUI;
+    List<PlayerController> characters = new List<PlayerController>();
+    List<GameObject> charactersUI = new List<GameObject>();
 
 	void Start () {
 	    
@@ -21,25 +21,34 @@ public class MainMenuController : MonoBehaviour {
 
     public void AddCrusher()
     {
-        characters.Add(Resources.Load("Prefabs/Characters/Crusher") as GameObject);
-        Transform charUI = Instantiate(Resources.Load("Prefabs/UI/Crusher") as Transform);
+        characters.Add(Resources.Load("Prefabs/Characters/Crusher") as PlayerController);
+        Transform charUI = Instantiate(crusherUIprefab).transform;
         charUI.SetParent(characterContainer);
+        charUI.localScale = Vector3.one;
+
+        charUI.GetComponent<RectTransform>().localPosition = Vector3.zero;
         charactersUI.Add(charUI.gameObject);
     }
 
     public void AddRepulser()
     {
-        characters.Add(Resources.Load("Prefabs/Characters/Repulser") as GameObject);
-        Transform charUI = Instantiate(Resources.Load("Prefabs/UI/Repulser") as Transform);
+        characters.Add(Resources.Load("Prefabs/Characters/Repulser") as PlayerController);
+        Transform charUI = Instantiate(repulserUIprefab).transform;
         charUI.SetParent(characterContainer);
+        charUI.localScale = Vector3.one;
+
+        charUI.GetComponent<RectTransform>().localPosition = Vector3.zero;
         charactersUI.Add(charUI.gameObject);
     }
 
     public void AddDasher()
     {
-        characters.Add(Resources.Load("Prefabs/Characters/Dasher") as GameObject);
-        Transform charUI = Instantiate(Resources.Load("Prefabs/UI/Dasher") as Transform);
+        characters.Add(Resources.Load("Prefabs/Characters/Dasher") as PlayerController);
+        Transform charUI = Instantiate(dasherUIprefab).transform;
         charUI.SetParent(characterContainer);
+        charUI.localScale = Vector3.one;
+
+        charUI.GetComponent<RectTransform>().localPosition = Vector3.zero;
         charactersUI.Add(charUI.gameObject);
     }
 
