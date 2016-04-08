@@ -52,14 +52,16 @@ public class PlayerController : MonoBehaviour {
         {
             movement.x = Input.GetAxis("P" + playerId + "Horizontal");
             movement.z = Input.GetAxis("P" + playerId + "Vertical");
-			gameObject.GetComponent<Animation>().CrossFade("walk");
+
+            // Anim
+			//gameObject.GetComponent<Animation>().CrossFade("walk");
 
 
             transform.LookAt(transform.position + movement);
         }
 		else {
-
-			gameObject.GetComponent<Animation>().CrossFade("idle");
+            // Anim
+			//gameObject.GetComponent<Animation>().CrossFade("idle");
 
 
 		}
@@ -80,11 +82,14 @@ public class PlayerController : MonoBehaviour {
 
     public void Die()
     {
-        lives--;
-        if (lives < 1)
-            Lose();
-        else
-            Respawn();
+        //lives--;
+        //if (lives < 1)
+        //    Lose();
+        //else
+        //    Respawn();
+
+        // DEBUG : Respawn
+        Respawn();
     }
 
     public void Lose()

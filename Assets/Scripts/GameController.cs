@@ -3,6 +3,17 @@ using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
 
+    #region Singleton pattern
+    GameController _instance;
+    public GameController Instance
+    {
+        get
+        {
+            return _instance;
+        }
+    }
+    #endregion
+
     #region Public variables
     public Transform[] spawnPoints;
     public int nbPlayers;
@@ -20,6 +31,15 @@ public class GameController : MonoBehaviour {
     /// </summary>
     List<PlayerController> players = new List<PlayerController>();
     #endregion
+
+    void Awake()
+    {
+        if (_instance == null)
+            _instance = this;
+        else
+            Destroy(gameObject);
+        DontDestroyOnLoad(this);
+    }
 
     void Start () {
             
