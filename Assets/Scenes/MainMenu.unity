@@ -511,7 +511,7 @@ MonoBehaviour:
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -715,14 +715,6 @@ MonoBehaviour:
   crusherData: {fileID: 11400000, guid: 19b133a413eaac247bda86df7e56910b, type: 2}
   dasherData: {fileID: 11400000, guid: c3492a0ccc675a44b8acbf20f41c5025, type: 2}
   repulserData: {fileID: 11400000, guid: f05721b02a0ea5b4084b6dffd88f93ee, type: 2}
-  map01:
-    mapSceneIndex: 0
-    mapSpawnPoints:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    mapName: Map01
 --- !u!4 &842306784
 Transform:
   m_ObjectHideFlags: 0
