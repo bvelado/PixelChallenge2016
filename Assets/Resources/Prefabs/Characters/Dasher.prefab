@@ -1978,7 +1978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 3
   playerId: 0
-  movementSpeed: 46
+  movementSpeed: 60
   maxVelocity: 4
   velocitySmoothLerp: 6
   secondsToResetStamina: 1

@@ -37,14 +37,15 @@ public class PlayerController : MonoBehaviour {
 
 	void Update () {
 
-        //Debug.DrawRay(rb.position, Vector3.down * .3f, Color.red);
-        //if(Physics.Raycast(rb.position, Vector3.down, 0.3f))
-        //{
-        //    grounded = true;
-        //} else
-        //{
-        //    grounded = false;
-        //}
+        Debug.DrawRay(rb.position, Vector3.down * .3f, Color.red);
+        if (Physics.Raycast(rb.position, Vector3.down, 0.3f))
+        {
+            grounded = true;
+        }
+        else
+        {
+            grounded = false;
+        }
 
         // Action
 
@@ -85,6 +86,9 @@ public class PlayerController : MonoBehaviour {
             velocity.x = Mathf.Lerp(velocity.x, Mathf.Sign(velocity.x) * maxVelocity, Time.deltaTime * velocitySmoothLerp);
         if (Mathf.Abs(velocity.z) > maxVelocity)
             velocity.z = Mathf.Lerp( velocity.z, Mathf.Sign(velocity.z) * maxVelocity, Time.deltaTime * velocitySmoothLerp);
+
+        if(!grounded)
+            velocity.y = Physics.gravity.y;
 
         velocity = Vector3.Lerp(velocity, Vector3.zero, Time.deltaTime * velocitySmoothLerp);
 
