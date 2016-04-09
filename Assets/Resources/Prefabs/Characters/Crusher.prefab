@@ -2085,6 +2085,8 @@ MonoBehaviour:
   range: {fileID: 13583512}
   explosionRadius: 1.6
   maxExplosionForce: 1100
+  effect: {fileID: 0}
+  effectDuration: 0.4
 --- !u!114 &11442262
 MonoBehaviour:
   m_ObjectHideFlags: 1
