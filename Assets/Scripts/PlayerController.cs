@@ -38,7 +38,8 @@ public class PlayerController : MonoBehaviour {
     #endregion
 
 	void Update () {
-        
+
+        Debug.DrawRay(rb.position, Vector3.down * 4f, Color.red);
         if (Physics.Raycast(rb.position, Vector3.down, 0.3f))
         {
             print("ok");

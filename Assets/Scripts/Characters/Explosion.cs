@@ -26,8 +26,12 @@ public class Explosion : MonoBehaviour, ICharacterAction
         print("Explosion");
         foreach (Movable movable in movablesInRange)
         {
-            float force = (explosionRadius - Vector3.Distance(movable.transform.position, transform.position)) / explosionRadius;
-            movable.GetComponent<Rigidbody>().AddForce((movable.transform.position - transform.position).normalized * force * maxExplosionForce);
+            float force = explosionRadius - Mathf.Abs(Vector3.Distance(transform.position, movable.transform.position));
+            print(force);
+
+            if (movable.GetComponent<PlayerController>())
+                movable.GetComponent<PlayerController>().SetUncontrollable(.3f);
+            movable.GetComponent<Rigidbody>().AddForce((transform.position - movable.transform.position).normalized * force * maxExplosionForce);
         }
     }
 
