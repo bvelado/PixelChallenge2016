@@ -34,11 +34,8 @@ public class Dash : MonoBehaviour, ICharacterAction
     IEnumerator ActivateDashCollider()
     {
 		effect.SetActive(true);
-
-        print("Dash collider activated");
         dashCollider.SetActive(true);
         yield return new WaitForSeconds(dashDuration);
-        print("Dash collider deactivated");
         dashCollider.SetActive(false);
 		effect.SetActive(false);
 
