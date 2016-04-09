@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour {
     public float secondsToResetStamina;
     public int maxActions;
 
+    public float invincibleTime;
+
     public SpriteRenderer selectCircle;
     #endregion
 
@@ -148,7 +150,7 @@ public class PlayerController : MonoBehaviour {
 
     public void SetInvincible()
     {
-        StartCoroutine(Invincible(3f));
+        StartCoroutine(Invincible(invincibleTime));
     }
 
     IEnumerator Uncontrollable(float seconds)

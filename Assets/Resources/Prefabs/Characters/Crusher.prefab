@@ -2236,6 +2236,7 @@ MonoBehaviour:
   velocitySmoothLerp: 6
   secondsToResetStamina: 3
   maxActions: 2
+  invincibleTime: 5
   selectCircle: {fileID: 21225878}
 --- !u!114 &11445400
 MonoBehaviour:
