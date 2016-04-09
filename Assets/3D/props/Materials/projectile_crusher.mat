@@ -7,10 +7,10 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: projectile_crusher
-  m_Shader: {fileID: 4800000, guid: f0cbe250c2bc8904898a3347ffcac909, type: 3}
+  m_Shader: {fileID: 4800000, guid: 963484209d11fd7f110076aa44295342, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
-  m_CustomRenderQueue: 4000
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -82,7 +82,7 @@ Material:
         first:
           name: _DistortTex
         second:
-          m_Texture: {fileID: 2800000, guid: 641bb2dce818a8a499b537a1963889ac, type: 3}
+          m_Texture: {fileID: 2800000, guid: 7a632f967e8ad42f5bd275898151ab6a, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -136,8 +136,12 @@ Material:
         second: 0
       data:
         first:
+          name: _BumpAmt
+        second: 10
+      data:
+        first:
           name: _Refraction
-        second: 28
+        second: 16
     m_Colors:
       data:
         first:

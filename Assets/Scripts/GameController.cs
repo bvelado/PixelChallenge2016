@@ -75,6 +75,15 @@ public class GameController : MonoBehaviour
 
             players[i].PlayerDied += OnPlayerDied;
         }
+
+        GameObject[] targets = new GameObject[players.Count];
+
+        for(int i = 0; i < players.Count; i++)
+        {
+            targets[i] = players[i].gameObject;
+        }
+
+        CameraController.Instance.SetTargets(targets);
     }
 
     public void AddPlayer(CharacterData player)
