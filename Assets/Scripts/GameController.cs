@@ -84,7 +84,8 @@ public class GameController : MonoBehaviour
             targets[i] = players[i].gameObject;
         }
 
-        CameraController.Instance.SetTargets(targets);
+        if(CameraController.Instance != null)
+            CameraController.Instance.SetTargets(targets);
     }
 
     public void AddPlayer(CharacterData player)

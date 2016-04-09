@@ -2245,8 +2245,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: {fileID: 6574850}
   RepulseEffect: {fileID: 140898, guid: c53e15e15192bd544b2356b877acdab5, type: 2}
-  repulseRange: 5
-  maxRepulseForce: 1600
+  repulseRange: 8
+  maxRepulseForce: 1200
 --- !u!114 &11471414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2260,9 +2260,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 0
   playerId: 1
-  movementSpeed: 14
-  maxVelocity: 5
-  velocitySmoothLerp: 3.6
+  movementSpeed: 76
+  maxVelocity: 3.2
+  velocitySmoothLerp: 6
   secondsToResetStamina: 3
   maxActions: 2
 --- !u!122 &12290816

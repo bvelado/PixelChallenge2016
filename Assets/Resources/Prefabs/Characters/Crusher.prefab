@@ -2095,8 +2095,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: {fileID: 13530768}
-  explosionRadius: 0.8
-  maxExplosionForce: 600
+  explosionRadius: 1
+  maxExplosionForce: 1000
 --- !u!114 &11485314
 MonoBehaviour:
   m_ObjectHideFlags: 1

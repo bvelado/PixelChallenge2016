@@ -21,8 +21,8 @@ public class Repulse : MonoBehaviour, ICharacterAction {
         foreach (Movable movable in movablesInRange)
         {
 			RepulseEffect.SetActive(true);
-            float force = (repulseRange - Vector3.Distance(movable.transform.position, transform.position)) / repulseRange;
-            movable.GetComponent<Rigidbody>().AddForce((movable.transform.position - transform.position).normalized * force * maxRepulseForce);
+            float force = Mathf.Abs(repulseRange - Vector3.Distance(movable.transform.position, transform.position));
+            movable.GetComponent<Rigidbody>().AddForce((movable.transform.position -transform.position).normalized * force * maxRepulseForce);
         }
     }
 

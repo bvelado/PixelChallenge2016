@@ -2283,7 +2283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d18a8ca41456641b95e84ad54fe366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashForce: 1600
+  dashForce: 1200
   dashDensity: 4
   dashDuration: 0.2
   DashEffect: {fileID: 140898, guid: c53e15e15192bd544b2356b877acdab5, type: 2}
