@@ -173,9 +173,11 @@ public class PlayerController : MonoBehaviour {
     IEnumerator Invincible(float seconds)
     {
         invincible = true;
+        GetComponent<Movable>().enabled = false;
         StartCoroutine(Clignote(seconds));
         yield return new WaitForSeconds(seconds);
         invincible = false;
+        GetComponent<Movable>().enabled = true;
     }
 
     IEnumerator Clignote(float seconds)
