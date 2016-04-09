@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour {
     float actionCost;
 
     public int lives;
+
+    bool controllable = true;
     #endregion
 
     #region Public variables
@@ -90,7 +92,8 @@ public class PlayerController : MonoBehaviour {
         if(!grounded)
             velocity.y = Physics.gravity.y;
 
-        velocity = Vector3.Lerp(velocity, Vector3.zero, Time.deltaTime * velocitySmoothLerp);
+        if(controllable)
+            velocity = Vector3.Lerp(velocity, Vector3.zero, Time.deltaTime * velocitySmoothLerp);
 
         rb.velocity = velocity;
 	}
@@ -100,7 +103,9 @@ public class PlayerController : MonoBehaviour {
         lives--;
         rb.velocity = Vector3.zero;
         rb.position = Vector3.zero;
-        
+
+        UIController.Instance.SetPlayerLives(playerId, lives);
+
         gameObject.SetActive(false);
         PlayerDied(this);
     }
@@ -125,5 +130,17 @@ public class PlayerController : MonoBehaviour {
         transform.position = spawnPos;
         rb.velocity = Vector3.zero;
         gameObject.SetActive(true);
+    }
+
+    public void SetUncontrollable(float seconds)
+    {
+        StartCoroutine(Uncontrollable(seconds));
+    }
+
+    IEnumerator Uncontrollable(float seconds)
+    {
+        controllable = false;
+        yield return new WaitForSeconds(seconds);
+        controllable = true;
     }
 }

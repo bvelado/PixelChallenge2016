@@ -10,6 +10,7 @@ public class Dash : MonoBehaviour, ICharacterAction
     public float dashDensity;
     public float dashDuration;
     public GameObject DashEffect;
+    public GameObject dashCollider;
     #endregion
 
     #region Private variables
@@ -25,29 +26,19 @@ public class Dash : MonoBehaviour, ICharacterAction
 
     public void Execute()
     {
-        //        print("Dash");
+        
         DashEffect.SetActive(true);
+        StartCoroutine(ActivateDashCollider());
         player.GetComponent<Rigidbody>().AddForce(player.transform.forward.normalized * dashForce);
-        StartCoroutine(SetDashMassDuringSeconds(dashDuration));
         DashEffect.SetActive(false);
-
-
-
     }
 
-    IEnumerator SetDashMassDuringSeconds(float seconds)
+    IEnumerator ActivateDashCollider()
     {
-        player.GetComponent<Rigidbody>().mass = dashDensity;
-        yield return new WaitForSeconds(seconds);
-        player.GetComponent<Rigidbody>().mass = baseDensity;
-    }
-
-    public void OnCollisionEnter(Collision collision)
-    {
-        if(collision.transform.GetComponent<Movable>())
-        {
-            collision.transform.GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity;
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
-        }
+        print("Dash collider activated");
+        dashCollider.SetActive(true);
+        yield return new WaitForSeconds(dashDuration);
+        print("Dash collider deactivated");
+        dashCollider.SetActive(false);
     }
 }
