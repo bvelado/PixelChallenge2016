@@ -7,9 +7,11 @@ public class Repulse : MonoBehaviour, ICharacterAction {
 
     #region Public variables
     public BoxCollider range;
-	public GameObject RepulseEffect;
     public float repulseRange;
     public float maxRepulseForce;
+	public GameObject effect;
+	public float effectDuration;
+
     #endregion
 
     #region Private variables
@@ -18,9 +20,9 @@ public class Repulse : MonoBehaviour, ICharacterAction {
 
     public void Execute()
     {
+		StartCoroutine("Animate");
         foreach (Movable movable in movablesInRange)
         {
-			RepulseEffect.SetActive(true);
             float force = Mathf.Abs(repulseRange - Vector3.Distance(movable.transform.position, transform.position));
             movable.GetComponent<Rigidbody>().AddForce((movable.transform.position -transform.position).normalized * force * maxRepulseForce);
         }
@@ -49,4 +51,12 @@ public class Repulse : MonoBehaviour, ICharacterAction {
         if (other.GetComponent<Movable>() != null && movablesInRange.Contains(other.GetComponent<Movable>()) && other != this)
             movablesInRange.Remove(other.GetComponent<Movable>());
     }
+	IEnumerator Animate()
+	{
+		effect.SetActive(true);
+
+		yield return new WaitForSeconds(effectDuration);
+
+		effect.SetActive(false);
+	}
 }

@@ -27,6 +27,7 @@ public class Explosion : MonoBehaviour, ICharacterAction
 
     public void Execute()
     {
+		StartCoroutine("Animate");
         print("Explosion");
         foreach (Movable movable in movablesInRange)
         {

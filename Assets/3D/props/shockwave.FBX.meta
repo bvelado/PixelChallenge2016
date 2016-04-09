@@ -10,11 +10,13 @@ ModelImporter:
     100004: Plane002
     100006: Plane003
     100008: Plane004
+    100010: Dummy001
     400000: //RootNode
     400002: Plane001
     400004: Plane002
     400006: Plane003
     400008: Plane004
+    400010: Dummy001
     2300000: //RootNode
     2300002: Plane002
     2300004: Plane003
@@ -79,6 +81,16 @@ ModelImporter:
       events: []
       transformMask:
       - path: 
+        weight: 1
+      - path: Dummy001
+        weight: 1
+      - path: Dummy001/Plane001
+        weight: 1
+      - path: Plane002
+        weight: 1
+      - path: Plane003
+        weight: 1
+      - path: Plane004
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}

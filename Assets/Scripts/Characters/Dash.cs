@@ -9,7 +9,7 @@ public class Dash : MonoBehaviour, ICharacterAction
     public float dashForce;
     public float dashDensity;
     public float dashDuration;
-    public GameObject DashEffect;
+	public GameObject effect;
     public GameObject dashCollider;
     #endregion
 
@@ -27,18 +27,20 @@ public class Dash : MonoBehaviour, ICharacterAction
     public void Execute()
     {
         
-        DashEffect.SetActive(true);
         StartCoroutine(ActivateDashCollider());
         player.GetComponent<Rigidbody>().AddForce(player.transform.forward.normalized * dashForce);
-        DashEffect.SetActive(false);
     }
 
     IEnumerator ActivateDashCollider()
     {
+		effect.SetActive(true);
+
         print("Dash collider activated");
         dashCollider.SetActive(true);
         yield return new WaitForSeconds(dashDuration);
         print("Dash collider deactivated");
         dashCollider.SetActive(false);
+		effect.SetActive(false);
+
     }
 }
