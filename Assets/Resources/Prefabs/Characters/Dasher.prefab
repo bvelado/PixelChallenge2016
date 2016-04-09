@@ -166,7 +166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &114508
 GameObject:
   m_ObjectHideFlags: 1
@@ -1642,7 +1642,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162334}
   m_LocalRotation: {x: -0.43045983, y: 0.430459, z: 0.56098527, w: 0.5609857}
-  m_LocalPosition: {x: 0.044, y: 0.6733032, z: -0.236}
+  m_LocalPosition: {x: 0, y: 0.6733032, z: -0.236}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
   m_Children:
   - {fileID: 440318}
@@ -1739,7 +1739,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5180786, y: -2.7396, z: -1.4912249}
+  m_LocalPosition: {x: -1.5180786, y: 4.993, z: -2.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 453394}
@@ -2068,7 +2068,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.6, z: 0.2}
+  m_Size: {x: 2, y: 1.6, z: 0.2}
   m_Center: {x: 0, y: 0.8, z: 0.5}
 --- !u!96 &9628846
 TrailRenderer:
@@ -2252,7 +2252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   propelForceObjects: 400
-  propelForcePlayers: 600
+  propelForcePlayers: 1800
   disableDuration: 0.4
 --- !u!114 &11485174
 MonoBehaviour:
@@ -2283,7 +2283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d18a8ca41456641b95e84ad54fe366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashForce: 1200
+  dashForce: 1400
   dashDensity: 4
   dashDuration: 0.2
   DashEffect: {fileID: 140898, guid: c53e15e15192bd544b2356b877acdab5, type: 2}

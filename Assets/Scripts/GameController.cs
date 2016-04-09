@@ -38,12 +38,14 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+#if UNITY_EDITOR
     void Start()
     {
         if (DEBUGSCENE)
             InitGame();
 
     }
+#endif
 
     /// <summary>
     /// Load Map data then initialize the players
