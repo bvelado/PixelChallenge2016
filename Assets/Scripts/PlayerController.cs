@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
 
     float baseDrag;
     bool grounded;
+    bool invincible = false;
 
     Vector3 movement;
     Vector3 velocity;
@@ -42,6 +43,15 @@ public class PlayerController : MonoBehaviour {
     #endregion
 
 	void Update () {
+
+        if(invincible && grounded)
+        {
+            rb.useGravity = false;
+            GetComponent<CapsuleCollider>().enabled = false;
+        } else {
+            rb.useGravity = true;
+            GetComponent<CapsuleCollider>().enabled = true;
+        }
 
         //Debug.DrawRay(rb.position, Vector3.down * 4f, Color.red);
         if (Physics.Raycast(rb.position, Vector3.down, 0.3f))
@@ -162,8 +172,10 @@ public class PlayerController : MonoBehaviour {
 
     IEnumerator Invincible(float seconds)
     {
+        invincible = true;
         StartCoroutine(Clignote(seconds));
         yield return new WaitForSeconds(seconds);
+        invincible = false;
     }
 
     IEnumerator Clignote(float seconds)
@@ -171,7 +183,6 @@ public class PlayerController : MonoBehaviour {
         float elapsedTime = 0f;
         while(elapsedTime < seconds)
         {
-            print("Beep");
             transform.GetChild(0).gameObject.SetActive(!transform.GetChild(0).gameObject.activeSelf);
             transform.GetChild(1).gameObject.SetActive(!transform.GetChild(1).gameObject.activeSelf);
             elapsedTime += 0.3f;

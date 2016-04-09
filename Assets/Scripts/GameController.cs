@@ -70,10 +70,6 @@ public class GameController : MonoBehaviour
         {
             map = GameObject.FindGameObjectWithTag("MapData").GetComponent<Map>();
         }
-        else
-        {
-            print("No map data found");
-        }
 
         players.Clear();
 
