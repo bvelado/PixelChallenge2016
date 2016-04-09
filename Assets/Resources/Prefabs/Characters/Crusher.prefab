@@ -2095,8 +2095,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: {fileID: 13530768}
-  explosionRadius: 1.6
-  maxExplosionForce: 1600
+  explosionRadius: 0.8
+  maxExplosionForce: 600
 --- !u!114 &11485314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2139,7 +2139,7 @@ CapsuleCollider:
   m_Radius: 0.29
   m_Height: 2.05
   m_Direction: 1
-  m_Center: {x: 0, y: 1.38, z: 0}
+  m_Center: {x: 0, y: 0.98, z: 0}
 --- !u!137 &13722180
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
