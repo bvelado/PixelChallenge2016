@@ -147,7 +147,7 @@ ModelImporter:
     3300000: Cigar
     4300000: Boomer
     4300002: Cigar
-    7400000: atk
+    7400000: action
     9500000: //RootNode
     11100000: //RootNode
     13700000: Boomer
@@ -173,10 +173,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: atk
+      name: action
       takeName: Take 001
-      firstFrame: 5
-      lastFrame: 29
+      firstFrame: 12
+      lastFrame: 21
       wrapMode: 1
       orientationOffsetY: 0
       level: 0

@@ -147,7 +147,7 @@ ModelImporter:
     3300000: Cigar
     4300000: Boomer
     4300002: Cigar
-    7400000: Run
+    7400000: walk
     9500000: //RootNode
     11100000: //RootNode
     13700000: Boomer
@@ -173,7 +173,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Run
+      name: walk
       takeName: Take 001
       firstFrame: 5
       lastFrame: 29
