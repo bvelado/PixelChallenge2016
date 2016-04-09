@@ -30,6 +30,7 @@ ModelImporter:
     4300004: Box001
     7400000: Take 001
     9500000: //RootNode
+    11100000: //RootNode
     13700000: Cylinder001
     13700002: Cylinder002
   materials:
@@ -52,7 +53,53 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cylinder001
+        weight: 1
+      - path: Cylinder002
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/Box001
+        weight: 1
+      - path: Root/Dummy001
+        weight: 1
+      - path: Root/Dummy001/Dummy004
+        weight: 1
+      - path: Root/Dummy005
+        weight: 1
+      - path: Root/Dummy005/Dummy006
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -90,7 +137,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

@@ -1,19 +1,33 @@
 fileFormatVersion: 2
-guid: fbdc82593e138b04f92b70cd42f09be4
-timeCreated: 1460212302
+guid: 170cadb760d9bd84e9f085068b63dc27
+timeCreated: 1460210464
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
   materialInstances:
   - serializedVersion: 16
-    name: metal_brushed_steel_001
-    prototypeName: metal_brushed_steel_001
+    name: wood_tiling_small_detail_generic
+    prototypeName: wood_tiling_small_detail_generic
     shaderName: 
     shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-    shaderKeywords: _NORMALMAP _PARALLAXMAP
+    shaderKeywords: _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP
     renderQueue: -1
     lightmapFlags: 5
     inputs:
+    - name: normal_intensity
+      value:
+        scalar[0]: 1
+        scalar[1]: 0
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
+    - name: roughness
+      value:
+        scalar[0]: 0.61
+        scalar[1]: 0
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
     - name: $outputsize
       value:
         scalar[0]: 8
@@ -63,20 +77,6 @@ SubstanceImporter:
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
-    - name: normal_intensity
-      value:
-        scalar[0]: 1
-        scalar[1]: 0
-        scalar[2]: 0
-        scalar[3]: 0
-        texture: {instanceID: 0}
-    - name: roughness
-      value:
-        scalar[0]: 0.41
-        scalar[1]: 0
-        scalar[2]: 0
-        scalar[3]: 0
-        texture: {instanceID: 0}
     - name: roughness_range
       value:
         scalar[0]: 1
@@ -101,7 +101,7 @@ SubstanceImporter:
     materialInformation:
       serializedVersion: 5
       offset: {x: 0, y: 0}
-      scale: {x: 1, y: 1}
+      scale: {x: 0.5, y: 0.5}
       generateMipmaps: 1
       generateAllOutputs: 0
       animationUpdateRate: 42
@@ -113,14 +113,14 @@ SubstanceImporter:
             name: _MainTex
           second:
             texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
+            scale: {x: 0.5, y: 0.5}
             offset: {x: 0, y: 0}
         data:
           first:
             name: _BumpMap
           second:
             texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
+            scale: {x: 0.5, y: 0.5}
             offset: {x: 0, y: 0}
         data:
           first:
@@ -134,21 +134,21 @@ SubstanceImporter:
             name: _ParallaxMap
           second:
             texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
+            scale: {x: 0.5, y: 0.5}
             offset: {x: 0, y: 0}
         data:
           first:
             name: _OcclusionMap
           second:
             texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
+            scale: {x: 0.5, y: 0.5}
             offset: {x: 0, y: 0}
         data:
           first:
             name: _EmissionMap
           second:
             texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
+            scale: {x: 0.5, y: 0.5}
             offset: {x: 0, y: 0}
         data:
           first:
@@ -169,7 +169,7 @@ SubstanceImporter:
             name: _MetallicGlossMap
           second:
             texture: {instanceID: 0}
-            scale: {x: 1, y: 1}
+            scale: {x: 0.5, y: 0.5}
             offset: {x: 0, y: 0}
       floats:
         data:
@@ -187,7 +187,7 @@ SubstanceImporter:
         data:
           first:
             name: _Parallax
-          second: 0.08
+          second: 0.0311
         data:
           first:
             name: _ZWrite
@@ -195,11 +195,11 @@ SubstanceImporter:
         data:
           first:
             name: _Glossiness
-          second: 0.83
+          second: 0.5
         data:
           first:
             name: _BumpScale
-          second: 1
+          second: 6.29
         data:
           first:
             name: _OcclusionStrength
@@ -219,7 +219,7 @@ SubstanceImporter:
         data:
           first:
             name: _Metallic
-          second: 1
+          second: 0
       colors:
         data:
           first:
@@ -228,29 +228,29 @@ SubstanceImporter:
         data:
           first:
             name: _Color
-          second: {r: 1, g: 1, b: 1, a: 1}
+          second: {r: 0.47794116, g: 0.47794116, b: 0.47794116, a: 1}
     textureParameters:
-    - name: metal_brushed_steel_001_basecolor
+    - name: wood_tiling_small_detail_generic_basecolor
       alphaSource: 6
       filterMode: 1
       aniso: 1
       wrapMode: 0
-    - name: metal_brushed_steel_001_normal
+    - name: wood_tiling_small_detail_generic_normal
       alphaSource: 0
       filterMode: 1
       aniso: 1
       wrapMode: 0
-    - name: metal_brushed_steel_001_metallic
+    - name: wood_tiling_small_detail_generic_metallic
       alphaSource: 7
       filterMode: 1
       aniso: 1
       wrapMode: 0
-    - name: metal_brushed_steel_001_ambient_occlusion
+    - name: wood_tiling_small_detail_generic_ambient_occlusion
       alphaSource: 0
       filterMode: 1
       aniso: 1
       wrapMode: 0
-    - name: metal_brushed_steel_001_height
+    - name: wood_tiling_small_detail_generic_height
       alphaSource: 0
       filterMode: 1
       aniso: 1
@@ -259,23 +259,23 @@ SubstanceImporter:
     - shaderProp:
         name: _MainTex
       material: {instanceID: 0}
-      baseUID: 3242615553
+      baseUID: 3507496647
     - shaderProp:
         name: _BumpMap
       material: {instanceID: 0}
-      baseUID: 3242615579
+      baseUID: 3507496669
     - shaderProp:
         name: _ParallaxMap
       material: {instanceID: 0}
-      baseUID: 3242615446
+      baseUID: 3507496784
     - shaderProp:
         name: _OcclusionMap
       material: {instanceID: 0}
-      baseUID: 3242615465
+      baseUID: 3507496815
     - shaderProp:
         name: _MetallicGlossMap
       material: {instanceID: 0}
-      baseUID: 3242615581
+      baseUID: 3507496667
     buildTargetSettings:
     - serializedVersion: 2
       buildTarget: 
