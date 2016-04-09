@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -114,7 +115,7 @@ public class GameController : MonoBehaviour
 
         if (players.Count < 2)
         {
-            print("Game finished. " + players[0].name + " won.");
+            SceneManager.LoadScene(0);
         }
     }
 
