@@ -567,7 +567,7 @@ RectTransform:
   m_Children:
   - {fileID: 160522155}
   m_Father: {fileID: 363454629}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: -28, y: 341}
@@ -686,7 +686,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 363454629}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: -22.2, y: 333.5}
@@ -813,10 +813,10 @@ RectTransform:
   - {fileID: 378367686}
   - {fileID: 174217608}
   - {fileID: 1413188505}
-  - {fileID: 253861976}
   - {fileID: 1192494352}
   - {fileID: 278464849}
   - {fileID: 678889871}
+  - {fileID: 253861976}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
@@ -876,7 +876,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 253861977}
     m_SelectOnLeft: {fileID: 174217609}
-    m_SelectOnRight: {fileID: 678889872}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1249,6 +1249,67 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 67bbf0360daa153418bb238977e2f902, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &490412256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 490412257}
+  - 108: {fileID: 490412258}
+  m_Layer: 0
+  m_Name: Point light (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &490412257
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 490412256}
+  m_LocalRotation: {x: -0.6061015, y: -0.24887323, z: 0.20764133, w: -0.72635263}
+  m_LocalPosition: {x: 2.12, y: 4.1, z: 0.00999988}
+  m_LocalScale: {x: 1.4531089, y: 1.4531088, z: 1.4531088}
+  m_Children: []
+  m_Father: {fileID: 1611893461}
+  m_RootOrder: 17
+--- !u!108 &490412258
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 490412256}
+  m_Enabled: 1
+  serializedVersion: 6
+  m_Type: 2
+  m_Color: {r: 0, g: 0.7931032, b: 1, a: 1}
+  m_Intensity: 0.52
+  m_Range: 78
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_BounceIntensity: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_AreaSize: {x: 1, y: 1}
 --- !u!1 &678889870
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,10 +1340,10 @@ RectTransform:
   m_Children:
   - {fileID: 1334512186}
   m_Father: {fileID: 363454629}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 329, y: -4.740645}
+  m_AnchoredPosition: {x: 319.9, y: -4.740645}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &678889872
@@ -1764,7 +1825,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1104949175}
   m_LocalRotation: {x: -0.6061015, y: -0.24887323, z: 0.20764133, w: -0.72635263}
-  m_LocalPosition: {x: -0.029622387, y: 2.7733464, z: -4.0595584}
+  m_LocalPosition: {x: -3.04, y: 4.1, z: 0.01}
   m_LocalScale: {x: 1.453109, y: 1.4531088, z: 1.4531089}
   m_Children: []
   m_Father: {fileID: 1611893461}
@@ -1932,7 +1993,7 @@ RectTransform:
   m_Children:
   - {fileID: 1564223526}
   m_Father: {fileID: 363454629}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 752, y: 147}
@@ -2391,6 +2452,7 @@ Transform:
   - {fileID: 1515917313}
   - {fileID: 1874643923}
   - {fileID: 1104949177}
+  - {fileID: 490412257}
   m_Father: {fileID: 0}
   m_RootOrder: 4
 --- !u!1 &1726729699
@@ -2486,7 +2548,7 @@ Light:
   serializedVersion: 6
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.28
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
