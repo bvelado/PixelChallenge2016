@@ -45,14 +45,18 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-#if UNITY_EDITOR
+
     void Start()
     {
         if (DEBUGSCENE)
             InitGame();
-
-    }
+        else
+            Destroy(gameObject);
+#if !UNITY_EDITOR
+            gameObject.SetActive(false);
 #endif
+    }
+
 
     /// <summary>
     /// Load Map data then initialize the players
