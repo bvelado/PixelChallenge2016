@@ -7,7 +7,7 @@ public class MainMenuController : MonoBehaviour
 {
     AsyncOperation asyncSceneLoad;
 
-    public Transform crusherUIprefab, dasherUIprefab, repulserUIprefab;
+//    public Transform crusherUIprefab, dasherUIprefab, repulserUIprefab;
 
     public Transform characterUIContainer;
 
@@ -18,7 +18,7 @@ public class MainMenuController : MonoBehaviour
     public void AddCrusher()
     {
         GameController.Instance.characters.Add(crusherData);
-        Transform charUI = Instantiate(crusherUIprefab).transform;
+		Transform charUI = Instantiate(crusherData.characterPortraitSprite);
         charUI.SetParent(characterUIContainer);
         charUI.localScale = Vector3.one;
 
@@ -29,7 +29,7 @@ public class MainMenuController : MonoBehaviour
     public void AddRepulser()
     {
         GameController.Instance.characters.Add(repulserData);
-        Transform charUI = Instantiate(repulserUIprefab).transform;
+		Transform charUI = Instantiate(repulserData.characterPortraitSprite);
         charUI.SetParent(characterUIContainer);
         charUI.localScale = Vector3.one;
 
@@ -40,7 +40,7 @@ public class MainMenuController : MonoBehaviour
     public void AddDasher()
     {
         GameController.Instance.characters.Add(dasherData);
-        Transform charUI = Instantiate(dasherUIprefab).transform;
+		Transform charUI = Instantiate(dasherData.characterPortraitSprite);
         charUI.SetParent(characterUIContainer);
         charUI.localScale = Vector3.one;
 
