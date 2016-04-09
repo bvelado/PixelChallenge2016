@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Update () {
 
-        Debug.DrawRay(rb.position, Vector3.down * 4f, Color.red);
+        //Debug.DrawRay(rb.position, Vector3.down * 4f, Color.red);
         if (Physics.Raycast(rb.position, Vector3.down, 0.3f))
         {
             print("ok");
@@ -98,7 +98,9 @@ public class PlayerController : MonoBehaviour {
             velocity = Vector3.Lerp(velocity, Vector3.zero, Time.deltaTime * velocitySmoothLerp);
 
         rb.velocity = velocity;
-	}
+
+        UIController.Instance.UpdatePlayerStamina(playerId, stamina / maxStamina);
+    }
 
     public void Die()
     {

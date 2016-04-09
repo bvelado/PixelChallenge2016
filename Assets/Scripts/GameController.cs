@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-
     #region Singleton pattern
     static GameController _instance;
     public static GameController Instance
@@ -27,6 +26,14 @@ public class GameController : MonoBehaviour
     List<PlayerController> players = new List<PlayerController>();
 
     List<PlayerController> deadPlayers = new List<PlayerController>();
+
+    Color[] playersColor =
+    {
+        Color.blue,
+        Color.red,
+        Color.green,
+        Color.yellow
+    };
     #endregion
 
     void Awake()
@@ -68,13 +75,13 @@ public class GameController : MonoBehaviour
             players.Add(Instantiate(character.characterModel).GetComponent<PlayerController>());
         }
 
-        print(players.Count);
-
         // DEBUG : Charger autant de players que necessaire , sortir la valeur en dur
         for (int i = 0; i < players.Count; i++)
         {
             players[i].Init(i + 1);
             players[i].Spawn(map.data.mapSpawnPoints[i].position);
+
+            UIController.Instance.CreatePlayerCooldown(i, players[i].secondsToResetStamina, playersColor[i]);
 
             players[i].PlayerDied += OnPlayerDied;
         }
