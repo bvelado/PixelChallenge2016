@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour {
 
     public float secondsToResetStamina;
     public int maxActions;
+
+    public SpriteRenderer selectCircle;
     #endregion
 
 	void Update () {
@@ -42,12 +44,10 @@ public class PlayerController : MonoBehaviour {
         //Debug.DrawRay(rb.position, Vector3.down * 4f, Color.red);
         if (Physics.Raycast(rb.position, Vector3.down, 0.3f))
         {
-            print("ok");
             grounded = true;
         }
         else
         {
-            print("ko");
             grounded = false;
         }
 
@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour {
         PlayerDied(this);
     }
 
-    public void Init(int playerId)
+    public void Init(int playerId, Color color)
     {
         rb = GetComponent<Rigidbody>();
         action = GetComponent<ICharacterAction>();
@@ -127,6 +127,8 @@ public class PlayerController : MonoBehaviour {
         lives = 3;
 
         this.playerId = playerId;
+
+        selectCircle.color = color;
     }
 
     public void Spawn(Vector3 spawnPos)

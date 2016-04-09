@@ -29,10 +29,10 @@ public class GameController : MonoBehaviour
 
     Color[] playersColor =
     {
-        Color.blue,
-        Color.red,
-        Color.green,
-        Color.yellow
+        new Color(255f/256f,145f/256f,10f/256f),
+        new Color(0f,168f/256f,255f/256f),
+        new Color(228f/256f,0f,255f/256f),
+        new Color(51f/256f,196f/256f,0f)
     };
     #endregion
 
@@ -78,13 +78,13 @@ public class GameController : MonoBehaviour
         {
             players.Add(Instantiate(character.characterModel).GetComponent<PlayerController>());
         }
-
-        // DEBUG : Charger autant de players que necessaire , sortir la valeur en dur
+        
         for (int i = 0; i < players.Count; i++)
         {
-            players[i].Init(i + 1);
+            players[i].Init(i + 1, playersColor[i]);
             players[i].Spawn(map.data.mapSpawnPoints[i].position);
 
+            UIController.Instance.CreatePlayer(i, playersColor[i]);
             UIController.Instance.CreatePlayerCooldown(i, players[i].secondsToResetStamina, playersColor[i]);
 
             players[i].PlayerDied += OnPlayerDied;
@@ -115,7 +115,7 @@ public class GameController : MonoBehaviour
     {
         if (player.lives > 0)
         {
-            player.Spawn(map.data.mapSpawnPoints[3].position);
+            player.Spawn(map.data.mapSpawnPoints[Random.Range(0, map.data.mapSpawnPoints.Length)].position);
         }
         else
         {

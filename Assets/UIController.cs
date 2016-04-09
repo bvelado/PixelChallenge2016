@@ -23,10 +23,14 @@ public class UIController : MonoBehaviour {
         }
     }
 
-    public Text[] playerLives;
+    public List<Text> playerLives = new List<Text>();
     public RectTransform _containerCooldown;
     public Transform cooldownUIprefab;
-    List<Image> playerCooldowns = new List<Image>();
+    public RectTransform _containerPlayer;
+    public Transform playerUIprefab;
+
+    List<RectTransform> playerCooldowns = new List<RectTransform>();
+    List<RectTransform> playerBlocks = new List<RectTransform>();
 
     List<PlayerCooldownUI> cooldownsData = new List<PlayerCooldownUI>();
 
@@ -52,12 +56,25 @@ public class UIController : MonoBehaviour {
         Transform tr = Instantiate(cooldownUIprefab);
         tr.SetParent(_containerCooldown);
         tr.localScale = Vector3.one;
-        tr.GetComponent<Image>().color = color;
-        playerCooldowns.Add(tr.GetComponent<Image>());
+        tr.GetChild(0).GetComponent<Image>().color = color;
+        tr.GetChild(1).GetComponent<Image>().color = color;
+        playerLives.Add(tr.GetChild(1).GetComponentInChildren<Text>());
+        playerCooldowns.Add(tr.GetComponent<RectTransform>());
+    }
+
+    public void CreatePlayer(int playerId, Color color)
+    {
+        Transform tr = Instantiate(playerUIprefab);
+        tr.SetParent(_containerPlayer);
+        tr.localScale = Vector3.one;
+        tr.GetComponentInChildren<Text>().text = "Player " + (playerId + 1);
+        tr.GetComponentInChildren<Text>().color = color;
+
+        playerBlocks.Add(tr.GetComponent<RectTransform>());
     }
 
     public void UpdatePlayerStamina(int playerId, float value)
     {
-        playerCooldowns[playerId-1].fillAmount = value;
+        playerCooldowns[playerId-1].GetChild(0).GetComponent<Image>().fillAmount = value;
     }
 }
