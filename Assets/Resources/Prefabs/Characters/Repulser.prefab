@@ -11,9 +11,9 @@ GameObject:
   - 33: {fileID: 3393122}
   - 23: {fileID: 2324868}
   m_Layer: 8
-  m_Name: Cylinder005
+  m_Name: batondelavie
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -232,7 +232,7 @@ GameObject:
   - 96: {fileID: 9626380}
   - 122: {fileID: 12290816}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: distort
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2060,8 +2060,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 117666}
-  m_LocalRotation: {x: 0, y: -0.99774474, z: 0, w: 0.067122534}
-  m_LocalPosition: {x: -7.103382, y: -2.7396, z: -1.4479685}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.133564, y: -2.7396, z: -3.3612976}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 413938}
@@ -2167,7 +2167,7 @@ TrailRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 481bd236f1866974b9ec1735f63fd3d5, type: 2}
+  - {fileID: 2100000, guid: 19fd0437834c58d459b6af541dd0f394, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2184,7 +2184,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Time: 0.2
-  m_StartWidth: 0.3
+  m_StartWidth: 0.5
   m_EndWidth: 0
   m_Colors:
     m_Color[0]:
