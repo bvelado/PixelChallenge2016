@@ -2035,7 +2035,7 @@ MonoBehaviour:
   lives: 3
   playerId: 0
   movementSpeed: 76
-  maxVelocity: 4
+  maxVelocity: 3.2
   velocitySmoothLerp: 6
   secondsToResetStamina: 1
   maxActions: 2

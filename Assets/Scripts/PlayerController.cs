@@ -38,14 +38,15 @@ public class PlayerController : MonoBehaviour {
     #endregion
 
 	void Update () {
-
-        Debug.DrawRay(rb.position, Vector3.down * .3f, Color.red);
+        
         if (Physics.Raycast(rb.position, Vector3.down, 0.3f))
         {
+            print("ok");
             grounded = true;
         }
         else
         {
+            print("ko");
             grounded = false;
         }
 
