@@ -18,6 +18,8 @@ public class CameraController : MonoBehaviour {
 
     float zoomValue;
 
+    public float camSpeed;
+
     Vector3 center;
 
     Vector3 leftestPos, rightestPos;
@@ -38,7 +40,6 @@ public class CameraController : MonoBehaviour {
             rightestPos = targets[0].transform.position;
         }
         
-
         foreach(GameObject target in targets)
         {
             center += target.transform.position;
@@ -51,10 +52,12 @@ public class CameraController : MonoBehaviour {
         if(targets.Length > 0)
             center = center / targets.Length;
 
-        zoomValue = -Mathf.Abs(rightestPos.x - leftestPos.x);
+        zoomValue = rightestPos.x - leftestPos.x;
 
-        transform.position = center + cameraOffset + (zoomValue * transform.forward * zoomFactor);
-	}
+        center += -zoomValue * zoomFactor * transform.forward;
+
+        transform.position = Vector3.Lerp(transform.position, center+cameraOffset, camSpeed * Time.deltaTime);
+    }
 
     public void SetTargets(GameObject[] targets)
     {
