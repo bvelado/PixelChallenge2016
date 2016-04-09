@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using DG.Tweening;
 
 public struct PlayerCooldownUI
 {
@@ -45,6 +46,14 @@ public class UIController : MonoBehaviour {
     public void SetPlayerLives(int playerId, int value)
     {
         playerLives[playerId - 1].text = value.ToString();
+
+        Sequence seq = DOTween.Sequence();
+
+        seq.Append(playerCooldowns[playerId - 1].GetChild(1).transform.DOScale(Vector3.one * 2.4f, .4f))
+            .Append(playerCooldowns[playerId - 1].GetChild(1).transform.DOScale(Vector3.one, .4f));
+
+        seq.Play();
+
     }
 
     public void CreatePlayerCooldown(int playerId, float maxValue, Color color)
@@ -75,6 +84,6 @@ public class UIController : MonoBehaviour {
 
     public void UpdatePlayerStamina(int playerId, float value)
     {
-        playerCooldowns[playerId-1].GetChild(0).GetComponent<Image>().fillAmount = value;
+        playerCooldowns[playerId - 1].GetChild(0).GetComponent<Image>().fillAmount = value;
     }
 }

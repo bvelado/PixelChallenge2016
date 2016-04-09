@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class CameraController : MonoBehaviour {
 
@@ -62,5 +63,13 @@ public class CameraController : MonoBehaviour {
     public void SetTargets(GameObject[] targets)
     {
         this.targets = targets;
+    }
+
+    public void Shake()
+    {
+        if (DOTween.Complete(transform) > 0)
+            DOTween.Clear(transform);
+        
+        transform.DOShakePosition(.4f);
     }
 }

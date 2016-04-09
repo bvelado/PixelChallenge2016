@@ -112,6 +112,8 @@ public class PlayerController : MonoBehaviour {
 
         gameObject.SetActive(false);
         PlayerDied(this);
+
+        CameraController.Instance.Shake();
     }
 
     public void Init(int playerId, Color color)
@@ -136,6 +138,7 @@ public class PlayerController : MonoBehaviour {
         transform.position = spawnPos;
         rb.velocity = Vector3.zero;
         gameObject.SetActive(true);
+        SetInvincible();
     }
 
     public void SetUncontrollable(float seconds)
@@ -143,10 +146,36 @@ public class PlayerController : MonoBehaviour {
         StartCoroutine(Uncontrollable(seconds));
     }
 
+    public void SetInvincible()
+    {
+        StartCoroutine(Invincible(3f));
+    }
+
     IEnumerator Uncontrollable(float seconds)
     {
         controllable = false;
         yield return new WaitForSeconds(seconds);
         controllable = true;
+    }
+
+    IEnumerator Invincible(float seconds)
+    {
+        StartCoroutine(Clignote(seconds));
+        yield return new WaitForSeconds(seconds);
+    }
+
+    IEnumerator Clignote(float seconds)
+    {
+        float elapsedTime = 0f;
+        while(elapsedTime < seconds)
+        {
+            print("Beep");
+            transform.GetChild(0).gameObject.SetActive(!transform.GetChild(0).gameObject.activeSelf);
+            transform.GetChild(1).gameObject.SetActive(!transform.GetChild(1).gameObject.activeSelf);
+            elapsedTime += 0.3f;
+            yield return new WaitForSeconds(0.1f);
+        }
+        transform.GetChild(0).gameObject.SetActive(true);
+        transform.GetChild(1).gameObject.SetActive(true);
     }
 }

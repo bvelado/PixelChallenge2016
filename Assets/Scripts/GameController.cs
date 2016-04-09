@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class GameController : MonoBehaviour
 {
@@ -43,6 +44,8 @@ public class GameController : MonoBehaviour
         else
             Destroy(gameObject);
         DontDestroyOnLoad(this);
+
+        DOTween.Init();
     }
 
 
@@ -138,4 +141,6 @@ public class GameController : MonoBehaviour
         if(level != 0 && level != 1)
             InitGame();
     }
+
+
 }
