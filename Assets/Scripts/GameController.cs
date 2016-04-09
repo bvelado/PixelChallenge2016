@@ -135,7 +135,7 @@ public class GameController : MonoBehaviour
 
     public void OnLevelWasLoaded(int level)
     {
-        if(level != 0)
+        if(level != 0 && level != 1)
             InitGame();
     }
 }
