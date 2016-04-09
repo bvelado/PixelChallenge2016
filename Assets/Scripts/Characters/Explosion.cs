@@ -9,6 +9,10 @@ public class Explosion : MonoBehaviour, ICharacterAction
 
     public float explosionRadius;
     public float maxExplosionForce;
+
+    public GameObject effect;
+
+    public float effectDuration;
     #endregion
 
     #region Private variables
@@ -47,5 +51,14 @@ public class Explosion : MonoBehaviour, ICharacterAction
         //print(other.name + " left range of " + name);
         if (other.GetComponent<Movable>() != null && movablesInRange.Contains(other.GetComponent<Movable>()) && other != this)
             movablesInRange.Remove(other.GetComponent<Movable>());
+    }
+
+    IEnumerator Animate()
+    {
+        effect.SetActive(true);
+
+        yield return new WaitForSeconds(effectDuration);
+
+        effect.SetActive(false);
     }
 }
