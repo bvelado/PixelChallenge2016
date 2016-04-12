@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour {
 
     public float invincibleTime;
 
+    public CharacterData data;
+
     public SpriteRenderer selectCircle;
     #endregion
 

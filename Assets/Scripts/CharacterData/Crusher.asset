@@ -14,4 +14,5 @@ MonoBehaviour:
   characterPortraitSprite: {fileID: 22419072, guid: 7f5d4fc10ffdee44396d702e556ab676,
     type: 2}
   characterModel: {fileID: 410632, guid: 695fae83b15ef524f911c0e7b2896b62, type: 2}
+  characterWinAnimated: {fileID: 125744, guid: 267c44621ab9449448be00fc6453635e, type: 2}
   characterName: Crusher

@@ -35,6 +35,8 @@ public class GameController : MonoBehaviour
         new Color(228f/256f,0f,255f/256f),
         new Color(51f/256f,196f/256f,0f)
     };
+
+    List<CharacterData> lastWinners = new List<CharacterData>();
     #endregion
 
     void Awake()
@@ -55,9 +57,7 @@ public class GameController : MonoBehaviour
             InitGame();
         else
             Destroy(gameObject);
-#if !UNITY_EDITOR
-            gameObject.SetActive(false);
-#endif
+
     }
 
 
@@ -124,18 +124,30 @@ public class GameController : MonoBehaviour
             deadPlayers.Add(player);
 
             player.PlayerDied -= OnPlayerDied;
+
+            lastWinners.Add(player.data);
         }
 
         if (players.Count < 2)
         {
-            SceneManager.LoadScene(0);
+            lastWinners.Add(players[0].data);
+            lastWinners.Reverse();
+            SceneManager.LoadScene(3);
         }
     }
 
     public void OnLevelWasLoaded(int level)
     {
-        if(level != 0 && level != 1)
+        if(level != 0 && level != 1 && level != 3)
             InitGame();
+
+        if(level == 3)
+        {
+            print(lastWinners.ToArray().Length);
+
+            EndSceneScript.Instance.Clear();
+            EndSceneScript.Instance.DisplayLastWinners(lastWinners.ToArray());
+        }
     }
 
 

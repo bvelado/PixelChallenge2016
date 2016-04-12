@@ -14,4 +14,5 @@ MonoBehaviour:
   characterPortraitSprite: {fileID: 22446344, guid: cc680fd5fb1afd64db16bfaabc0522dc,
     type: 2}
   characterModel: {fileID: 468790, guid: c38fa6e622628604c9eb9c1d4cc2f090, type: 2}
+  characterWinAnimated: {fileID: 182644, guid: 59efca8097de38a45a6b83ad6a97e91e, type: 2}
   characterName: Dasher

@@ -5,5 +5,6 @@ using System.Collections;
 public class CharacterData : ScriptableObject {
     public Transform characterPortraitSprite;
     public Transform characterModel;
+    public GameObject characterWinAnimated;
     public string characterName;
 }
